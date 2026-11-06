@@ -1,6 +1,16 @@
-public interface ColorPreview {
-    void addObserver(ColorObserver observer);
-    void removeObserver(ColorObserver observer);
-    void notifyObservers(int red, int green, int blue);
-    
+// Observer design pattern Concrete Observer
+
+import javax.swing.JPanel;
+import java.awt.Color;
+
+public class ColorPreview implements ColorObserver {
+    private JPanel colorPreview;
+
+    public ColorPreview(JPanel colorPreview) {
+        this.colorPreview = colorPreview;
+    }
+    @Override
+    public void update(int red, int green, int blue) {
+        colorPreview.setBackground(new Color(red, green, blue));
+    }
 }

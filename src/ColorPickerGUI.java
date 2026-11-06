@@ -2,7 +2,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-
+// Mediator design pattern 
 public class ColorPickerGUI {
 
     // constructor for GUI
@@ -22,7 +22,7 @@ public class ColorPickerGUI {
         mainPanel.setMaximumSize(fixedSize);
 
 
-        // Color preview
+        // Color preview panel
         JPanel previewPanel = new JPanel();
         previewPanel.setPreferredSize(new Dimension(100, 100));
         previewPanel.setBackground(Color.BLACK);
@@ -46,15 +46,16 @@ public class ColorPickerGUI {
         labelPanel.add(rgbLabel);
         labelPanel.add(hexLabel);
 
-        // Create model and register observers
+
+        // Create model(observer pattern's subject) and register observers for the subject to update
         ColorModel model = new ColorModel();
-        // model.addObserver(new ColorPreview(previewPanel));
-        // model.addObserver(new RGBDisplay(rgbLabel));
-        // model.addObserver(new HexDisplay(hexLabel));
+        model.addObserver(new ColorPreview(previewPanel));
+        model.addObserver(new RGBDisplay(rgbLabel));
+        model.addObserver(new HexDisplay(hexLabel));
 
-        // new ColorPickerMediator(model, redSlider, greenSlider, blueSlider);
+        new ColorPickerMediator(model, redSlider, greenSlider, blueSlider);
 
-        // Components
+        // Add components to the main panel so they actually appear in the GUI
         mainPanel.add(sliderPanel, BorderLayout.CENTER);
         mainPanel.add(previewPanel, BorderLayout.NORTH);
         mainPanel.add(labelPanel, BorderLayout.SOUTH);

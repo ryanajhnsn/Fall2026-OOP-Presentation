@@ -1,9 +1,12 @@
+import javax.swing.JLabel;
 public class RGBDisplay implements ColorObserver {
     int red;
     int green;
     int blue;
-    
-    public RGBDisplay() {
+    private JLabel rgbLabel;
+
+    public RGBDisplay(JLabel rgbLabel) {
+        this.rgbLabel = rgbLabel;
         this.red = 0;
         this.green = 0;
         this.blue = 0;
@@ -14,6 +17,8 @@ public class RGBDisplay implements ColorObserver {
         this.red = red;
         this.green = green;
         this.blue = blue;
+
+        rgbLabel.setText("RGB: " + red + ", " + green + ", " + blue);
     }
 
 }

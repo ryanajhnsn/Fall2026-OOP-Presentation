@@ -11,6 +11,7 @@ public class HexDisplay implements ColorObserver{
     public void update(int red, int green, int blue) {
         // Display the hex color
         this.hexCode = rgbtoHex(red, green, blue);
+        hexLabel.setText(hexCode);
     }
 
     public static String rgbtoHex(int red, int green, int blue){
