@@ -23,6 +23,7 @@ public class ColorPickerMediator {
         blueSlider.addChangeListener(listener);
     }
 
+    // Updates the color model (Observer design pattern subject) with the values of the sliders
     public void update(){
         int red = redSlider.getValue();
         int green = greenSlider.getValue();

@@ -1,4 +1,5 @@
 import javax.swing.JLabel;
+// Observer design pattern Concrete Observer
 public class RGBDisplay implements ColorObserver {
     int red;
     int green;

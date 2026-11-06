@@ -2,7 +2,7 @@
 
 import javax.swing.JPanel;
 import java.awt.Color;
-
+// Observer design pattern Concrete Observer
 public class ColorPreview implements ColorObserver {
     private JPanel colorPreview;
 

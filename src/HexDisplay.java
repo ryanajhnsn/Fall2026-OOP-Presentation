@@ -1,5 +1,5 @@
 import javax.swing.JLabel;
-
+// Observer design pattern Concrete Observer
 public class HexDisplay implements ColorObserver{
     String hexCode;
     private JLabel hexLabel;
@@ -9,7 +9,7 @@ public class HexDisplay implements ColorObserver{
     }
     @Override
     public void update(int red, int green, int blue) {
-        // Display the hex color
+        // convert RGB to the hex color and update the hex label
         this.hexCode = rgbtoHex(red, green, blue);
         hexLabel.setText(hexCode);
     }
